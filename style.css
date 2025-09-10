@@ -212,3 +212,220 @@ footer {
     width: 100%;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------
+   STYLE GLOBAL
+------------------------------ */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* ------------------------------
+   HEADER
+------------------------------ */
+header {
+  background: #0077cc;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0 0 10px 0;
+}
+
+/* ------------------------------
+   BARRE DE RECHERCHE
+------------------------------ */
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+
+.search-box button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background: #005fa3;
+  color: white;
+  cursor: pointer;
+}
+
+.search-box button:hover {
+  background: #004477;
+}
+
+/* ------------------------------
+   CONTROLES DE RAFRAICHISSEMENT
+------------------------------ */
+#refresh-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 15px;
+  font-size: 14px;
+}
+
+#refresh-timer {
+  color: #555;
+  font-style: italic;
+}
+
+#refresh-now {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  background: #28a745;
+  color: white;
+  cursor: pointer;
+}
+
+#refresh-now:hover {
+  background: #1e7e34;
+}
+
+/* ------------------------------
+   NAVIGATION CATEGORIES
+------------------------------ */
+.categories {
+  text-align: center;
+  background: #fff;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.categories button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background: #0077cc;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.categories button:hover {
+  background: #005fa3;
+}
+
+/* ------------------------------
+   LISTE D'ACTUALITÉS
+------------------------------ */
+#news-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.news {
+  display: flex;
+  background: white;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.news img {
+  width: 200px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.news-content h2 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #0077cc;
+}
+
+.news-content p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #444;
+}
+
+.news-content small {
+  color: #777;
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+footer {
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+  background: #0077cc;
+  color: white;
+}
+/* ------------------------------
+   DARK MODE (par défaut désactivé)
+------------------------------ */
+body.dark-mode {
+  background: #181818;
+  color: #eaeaea;
+}
+
+body.dark-mode header {
+  background: #222;
+}
+
+body.dark-mode .categories {
+  background: #222;
+}
+
+body.dark-mode .categories button {
+  background: #444;
+}
+
+body.dark-mode .categories button:hover {
+  background: #666;
+}
+
+body.dark-mode .news {
+  background: #222;
+  color: #ddd;
+}
+
+body.dark-mode .news-content h2 {
+  color: #66b2ff;
+}
+
+body.dark-mode footer {
+  background: #222;
+}
+
+/* Bouton Dark Mode */
+#dark-mode-toggle {
+  margin-top: 10px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  background: #444;
+  color: white;
+  cursor: pointer;
+}
+
+#dark-mode-toggle:hover {
+  background: #666;
+}
