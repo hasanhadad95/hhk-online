@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil - MonSite</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1014054588222831"
+     crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <a href="index.html" class="logo"></a>
+    <ul><img src="img.png" alt="Mon logo" width="100">
+      <li><a href="index.html" class="active">Accueil</a></li>
+      <li><a href="services.html">Services</a>
+      <li><a href="about.html">À propos</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </aside>
+  
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Actualités RSS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>📰 Actualités</h1>
+    <div class="search-box">
+      <input type="text" id="search" placeholder="Rechercher une actualité...">
+      <button onclick="searchNews()">🔍</button>
+    </div>
+    <button id="dark-mode-toggle">🌙 Mode sombre</button>
+  </header>
+
+  <div id="refresh-controls">
+    <div id="refresh-timer">🔄 Prochaine mise à jour dans 10:00</div>
+    <button id="refresh-now" onclick="refreshNow()">Actualiser maintenant</button>
+  </div>
+
+  <nav class="categories">
+    <button onclick="loadCategory('politique')">Politique</button>
+    <button onclick="loadCategory('sport')">Sport</button>
+    <button onclick="loadCategory('technologie')">Technologie</button>
+    <button onclick="loadCategory('economie')">Économie</button>
+  </nav>
+
+  <main id="news-container">
+    <p>Chargement des actualités...</p>
+  </main>
+
+  <footer>
+    <p>© 2025 - HHK Online Actualités RSS</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
