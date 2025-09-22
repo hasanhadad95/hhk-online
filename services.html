@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Accueil - MonSite</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">HHK ONLINE</div>
+    <nav>
+        <img src="img.png" alt="Mon logo" width="100">
+      <a href="index.html">Accueil</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="produit.html">Produits</a>
+      <a href="services.html"class="active">Services</a>
+      <a href="about.html">À propos</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-controls">
+      <select id="lang-select" aria-label="Choisir langue"></select>
+      <button id="dark-mode-toggle">🌙 Mode sombre</button>
+    </div>
+  </header>
+
+  <!-- CONTENU -->
+  <main>
+    <h1>Nos Services</h1>
+    <p style="text-align:center; margin-bottom:20px;">
+      Voici un aperçu des services que nous proposons pour booster votre activité en ligne.
+    </p>
+
+   <section class="services-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; max-width:1000px; margin:auto;">
+      
+          <div style="background:#fff; padding:25px; border-radius:15px; box-shadow:0 6px 20px rgba(0,0,0,0.1);">
+        <a href="dev.html" class="btn"><h3>Développement Web</h3></a>
+        <p>
+          Création de sites web modernes, rapides et optimisés pour tous les appareils </p>
+      </div>
+
+          <div style="background:#fff; padding:25px; border-radius:15px; box-shadow:0 6px 20px rgba(0,0,0,0.1);">
+        <a href="dev.html" class="btn"><h3>E-commerce</h3></a>
+        <p>
+          Mise en place de boutiques en ligne performantes avec gestion des paiements sécurisés.
+        </p>
+      </div>
+
+          <div style="background:#fff; padding:25px; border-radius:15px; box-shadow:0 6px 20px rgba(0,0,0,0.1);">
+        <a href="dev.html" class="btn"><h3>Gestion Digitale</h3>
+        </a><p>
+          Outils et conseils pour gérer efficacement vos activités en ligne.
+        </p>
+      </div>
+
+          <div style="background:#fff; padding:25px; border-radius:15px; box-shadow:0 6px 20px rgba(0,0,0,0.1);">
+        <a href="dev.html" class="btn"> <h3>Conseil Stratégique</h3></a>
+        <p>
+          Accompagnement personnalisé pour développer votre stratégie digitale.
+        </p>
+      </div>
+      </main>
+
+    </section>
+
+    <footer>
+      <p>&copy; 2025 HHK Online. Tous droits réservés.</p>
+    </footer>
+  </main>
+
+</body>
+</html>
