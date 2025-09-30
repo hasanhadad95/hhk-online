@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Actualités</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">HHK ONLINE</div>
+
+    <nav>
+      <img src="img.png" alt="Mon logo" width="100">
+      <a href="index.html">Accueil</a>
+      <a href="actualites.html" class="active">Actualités</a>
+      <a href="produit.html">Produits</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">À propos</a>
+      <a href="contact.html">Contact</a>
+       <a href="actualites.html?category=activites">Activités</a>
+      <a href="actualites.html?category=politique">Politique</a>
+      <a href="actualites.html?category=sport">Sport</a>
+      <a href="actualites.html?category=economie">Économie</a>
+      <a href="actualites.html?category=technologie">Technologie</a>
+      <a href="actualites.html?category=islamique">Islamique</a>
+    </nav>
+
+    <div class="header-controls">
+      <select id="lang-select" aria-label="Choisir langue"></select>
+      <button id="dark-mode-toggle">🌙 Mode sombre</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Dernières Actualités</h1>
+
+    <div id="news-container" class="container"></div>
+
+    <div id="refresh-controls" class="controls">
+      <p id="refresh-timer"></p>
+      <button id="refresh-now" class="btn">🔄 Rafraîchir</button>
+    </div>
+  </main>
+
+  <div id="new-articles-alert" class="new-articles-alert">
+    ✨ Nouvelles actus disponibles ! <button id="new-articles-see" class="btn small">Voir</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 - MonSite</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

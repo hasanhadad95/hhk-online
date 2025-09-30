@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Produits</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .filter-bar {
+      margin: 20px 0;
+      text-align: center;
+    }
+    .filter-bar button {
+      margin: 5px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      background: #444;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .filter-bar button.active,
+    .filter-bar button:hover {
+      background: #ff9900;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .product-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      background: #fff;
+      transition: transform 0.2s;
+    }
+    .product-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .product-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+    .product-card h4 {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    .product-card p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .product-card a {
+      display: inline-block;
+      padding: 6px 12px;
+      background: #ff9900; /* couleur Amazon */
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+    .product-card a:hover {
+      background: #e68a00;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">HHK ONLINE</div>
+    <nav>
+      <img src="img.png" alt="Mon logo" width="100">
+      <a href="index.html">Accueil</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="produit.html" class="active">Produits</a>
+    </div>
+      <a href="services.html">Services</a>
+      <a href="about.html">À propos</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <!-- Barre de filtre -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-category="all">Tous</button>
+      <button class="filter-btn" data-category="electronique">Électronique</button>
+      <button class="filter-btn" data-category="livres">Livres</button>
+      <button class="filter-btn" data-category="mode">Mode</button>
+    </div>
+  </header>
+  <main class="container">
+    <h1>Nos Produits</h1>
+    <p>Découvrez une sélection de produits recommandés. Cliquez sur "Acheter" pour être redirigé vers Amazon avec votre lien d’affiliation.</p>
+
+    
+
+    <!-- Grille des produits -->
+    <div id="product-grid" class="product-grid">
+      <!-- Électronique -->
+      <div class="product-card" data-category="electronique">
+        <img src="https://m.media-amazon.com/images/I/71pQ1qESAPL._AC_SL1500_.jpg" alt="Smartphone">
+        <h4>Smartphone Android</h4>
+        <p>Écran 6.5" • 128 Go • Triple caméra</p>
+        <a href="https://www.amazon.fr/dp/B0C1234567?tag=TON_ID_PARTENAIRE" target="_blank">Acheter</a>
+      </div>
+      <div class="product-card" data-category="electronique">
+        <img src="https://m.media-amazon.com/images/I/81X7c0aEZnL._AC_SL1500_.jpg" alt="Écouteurs">
+        <h4>Écouteurs sans fil</h4>
+        <p>Batterie longue durée • Bluetooth 5.2</p>
+        <a href="https://www.amazon.fr/dp/B0C7654321?tag=TON_ID_PARTENAIRE" target="_blank">Acheter</a>
+      </div>
+
+      <!-- Livres -->
+      <div class="product-card" data-category="livres">
+        <img src="https://m.media-amazon.com/images/I/71aFt4+OTOL._AC_UY436_FMwebp_QL65_.jpg" alt="Livre">
+        <h4>Le Pouvoir du moment présent</h4>
+        <p>Eckhart Tolle • Développement personnel</p>
+        <a href="https://www.amazon.fr/dp/B002RI97IY?tag=TON_ID_PARTENAIRE" target="_blank">Acheter</a>
+      </div>
+      <div class="product-card" data-category="livres">
+        <img src="https://m.media-amazon.com/images/I/91uwocAMtSL._AC_UY436_FMwebp_QL65_.jpg" alt="Livre">
+        <h4>Atomic Habits</h4>
+        <p>James Clear • Productivité</p>
+        <a href="https://www.amazon.fr/dp/B07J1XQSNK?tag=TON_ID_PARTENAIRE" target="_blank">Acheter</a>
+      </div>
+
+      <!-- Mode -->
+      <div class="product-card" data-category="mode">
+        <img src="https://m.media-amazon.com/images/I/71h7f4+TUAL._AC_UL1500_.jpg" alt="T-shirt">
+        <h4>T-shirt Coton Premium</h4>
+        <p>Disponible en plusieurs couleurs</p>
+        <a href="https://www.amazon.fr/dp/B0C76543XX?tag=TON_ID_PARTENAIRE" target="_blank">Acheter</a>
+      </div>
+      <div class="product-card" data-category="mode">
+        <img src="https://m.media-amazon.com/images/I/81-7s8v7-UL._AC_UL1500_.jpg" alt="Sac à dos">
+        <h4>Sac à dos Étanche</h4>
+        <p>Voyage • PC portable • Multifonction</p>
+        <a href="https://www.amazon.fr/dp/B0D1234567?tag=TON_ID_PARTENAIRE" target="_blank">Acheter</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - MonSite</p>
+  </footer>
+
+  <script>
+    // Filtrage des produits par catégorie
+    const buttons = document.querySelectorAll(".filter-btn");
+    const products = document.querySelectorAll(".product-card");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const category = btn.getAttribute("data-category");
+
+        products.forEach(product => {
+          if (category === "all" || product.getAttribute("data-category") === category) {
+            product.style.display = "block";
+          } else {
+            product.style.display = "none";
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

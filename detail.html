@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Actualités</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">HHK ONLINE</div>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="actualites.html" class="active">Actualités</a>
+      <a href="actualites.html?category=islamique">Islamique</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">À propos</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="detail-container" id="detail-wrap">
+      <button id="back-btn" class="btn" style="margin-bottom:10px">⬅ Retour aux actualités</button>
+      <h2 id="detail-title">Chargement…</h2>
+      <div class="date meta">
+        <span id="detail-date"></span> • <span id="detail-source"></span>
+      </div>
+
+      <div id="detail-media" style="margin:12px 0"></div>
+
+      <div id="detail-content" class="detail-content"></div>
+
+      <p><a id="detail-link" href="#" target="_blank" rel="noopener">Voir l'article original</a></p>
+
+      <div class="likes" style="margin-top:12px">
+        <button id="like-btn" class="like-btn">👍 Like</button><span class="like-count" id="like-count">0</span>
+        <button id="dislike-btn" class="dislike-btn" style="margin-left:8px">👎 Dislike</button><span class="dislike-count" id="dislike-count">0</span>
+      </div>
+
+      <!-- ✅ Boutons de partage -->
+      <div class="share-buttons" style="margin-top:15px">
+        <a id="share-whatsapp" class="share-whatsapp small" target="_blank">WhatsApp</a>
+        <a id="share-fb" class="share-fb small" target="_blank">Facebook</a>
+        <a id="share-twitter" class="share-twitter small" target="_blank">Twitter</a>
+        <button id="share-copy" class="share-copy small">Copier lien</button>
+      </div>
+
+      <div class="comments">
+        <h3>Commentaires</h3>
+        <textarea id="comment-text" placeholder="Votre commentaire…"></textarea>
+        <button id="comment-send" class="btn">Envoyer</button>
+
+        <ul class="comment-list" id="comment-list"></ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - MonSite</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script>
+    (function(){
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+
+      function loadFromStorage(id){
+        try{
+          const map = JSON.parse(localStorage.getItem('articlesMap') || '{}');
+          return id && map && map[id] ? map[id] : null;
+        }catch(e){ return null; }
+      }
+
+      function fallbackFromParams(){
+        return {
+          title: params.get('title') || 'Sans titre',
+          content: params.get('desc') || '',
+          image: params.get('img') || '',
+          pubDate: params.get('date') || '',
+          source: params.get('source') || '',
+          link: params.get('origlink') || '#'
+        };
+      }
+
+      const article = loadFromStorage(id) || fallbackFromParams();
+
+      document.getElementById('detail-title').textContent = article.title || 'Sans titre';
+      document.getElementById('detail-date').textContent = article.pubDate || '';
+      document.getElementById('detail-source').textContent = article.source || '';
+      document.getElementById('detail-link').href = article.link || '#';
+
+      // Media
+      const mediaWrap = document.getElementById('detail-media');
+      mediaWrap.innerHTML = '';
+      if(article.videoEmbed && article.videoEmbed.html){
+        mediaWrap.innerHTML = article.videoEmbed.html;
+      } else if(/<iframe[\s\S]*?src=['"]([^'"]+)['"]/.test(article.content || '')){
+        const m = (article.content||'').match(/<iframe[\s\S]*?src=['"]([^'"]+)['"]/i);
+        if(m && m[0]) mediaWrap.innerHTML = m[0];
+      } else if(article.image){
+        mediaWrap.innerHTML = `<img src="${article.image}" alt="${(article.title||'')}" loading="lazy">`;
+      }
+
+      // Content
+      const contentEl = document.getElementById('detail-content');
+      contentEl.innerHTML = article.content || '';
+
+      // Back
+      document.getElementById('back-btn').addEventListener('click', ()=>{
+        if(document.referrer && document.referrer.includes('actualites')) window.history.back();
+        else window.location = 'actualites.html';
+      });
+
+      // Likes
+      const likeKey = 'likes_'+(id || article.title);
+      const dislikeKey = 'dislikes_'+(id || article.title);
+      const likeCountEl = document.getElementById('like-count');
+      const dislikeCountEl = document.getElementById('dislike-count');
+      likeCountEl.textContent = localStorage.getItem(likeKey) || '0';
+      dislikeCountEl.textContent = localStorage.getItem(dislikeKey) || '0';
+      document.getElementById('like-btn').addEventListener('click', ()=>{
+        const v = parseInt(localStorage.getItem(likeKey) || '0') + 1;
+        localStorage.setItem(likeKey, v);
+        likeCountEl.textContent = v;
+      });
+      document.getElementById('dislike-btn').addEventListener('click', ()=>{
+        const v = parseInt(localStorage.getItem(dislikeKey) || '0') + 1;
+        localStorage.setItem(dislikeKey, v);
+        dislikeCountEl.textContent = v;
+      });
+
+      // ✅ Partage
+      const detailUrl = window.location.href;
+      document.getElementById("share-whatsapp").href = `https://api.whatsapp.com/send?text=${encodeURIComponent(article.title + " " + detailUrl)}`;
+      document.getElementById("share-fb").href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(detailUrl)}`;
+      document.getElementById("share-twitter").href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${encodeURIComponent(detailUrl)}`;
+      document.getElementById("share-copy").addEventListener("click", ()=>{
+        navigator.clipboard.writeText(detailUrl).then(()=>{
+          alert("✅ Lien copié !");
+        });
+      });
+
+      // Comments
+      const commentsKey = 'comments_'+(id || article.title);
+      function renderComments(){
+        const list = document.getElementById('comment-list');
+        list.innerHTML = '';
+        const arr = JSON.parse(localStorage.getItem(commentsKey) || '[]');
+        arr.forEach(c=>{
+          const li = document.createElement('li');
+          li.textContent = c;
+          list.appendChild(li);
+        });
+      }
+      renderComments();
+      document.getElementById('comment-send').addEventListener('click', ()=>{
+        const t = document.getElementById('comment-text').value.trim();
+        if(!t) return alert('Veuillez entrer un commentaire');
+        const arr = JSON.parse(localStorage.getItem(commentsKey) || '[]');
+        arr.unshift(t);
+        localStorage.setItem(commentsKey, JSON.stringify(arr));
+        document.getElementById('comment-text').value = '';
+        renderComments();
+      });
+    })();
+  </script>
+</body>
+</html>

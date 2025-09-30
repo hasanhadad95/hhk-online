@@ -1,0 +1,101 @@
+  <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+      * ------------------------------
+   FORMULAIRE CONTACT
+   ------------------------------ */
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #0a3d62;
+  outline: none;
+  box-shadow: 0 0 5px rgba(10,61,98,0.3);
+}
+
+.contact-form button {
+  background: #0a3d62;
+  color: #fff;
+  border: none;
+  padding: 14px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #f1c40f;
+  color: #0a3d62;
+}
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">HHK ONLINE</div>
+    <nav>
+        <img src="img.png" alt="Mon logo" width="100">
+      <a href="index.html">Accueil</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="produit.html">Produits</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">À propos</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <div class="header-controls">
+      <select id="lang-select" aria-label="Choisir langue"></select>
+      <button id="dark-mode-toggle">🌙 Mode sombre</button>
+    </div>
+  </header>
+
+  <!-- CONTENU -->
+  <main>
+    <h1>Contactez-nous</h1>
+    <p style="text-align:center; margin-bottom:20px;">
+      Remplissez ce formulaire et nous vous répondrons rapidement.
+    </p>
+
+    <form class="contact-form" 
+          action="https://formspree.io/f/xldwoyba" 
+          method="POST">
+      <input type="text" name="name" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre email" required>
+      <textarea name="message" rows="6" placeholder="Votre message" required></textarea>
+      
+      <!-- Redirection automatique vers merci.html -->
+      <input type="hidden" name="_redirect" value="merci.html">
+
+      <button type="submit">Envoyer</button>
+    </form>
+</main>
+    <footer>
+      <p>&copy; 2025 HHK Online. Tous droits réservés.</p>
+    </footer>
+  </main>
+
+</body>
+</html>
